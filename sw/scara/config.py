@@ -229,24 +229,40 @@ RUNNING_TORQUE_NM = (6.2, 9.5, 4.3)
 # =============================================================================
 
 #: 컨트롤러(Designer)에 설정된 관절 한계 [rad]. 컨트롤러가 이 값을 강제하므로
-#: 더 넓게 쓰려면 Designer 에서 먼저 올려야 한다.
-#: 어디까지 올려도 되는지는 tools/collision_map.py 가 계산해 준다.
+#: 소프트웨어가 이보다 넓게 잡는 것은 무의미하다.
+#: `tools/dump_config.py` 로 실기에서 읽은 값과 맞춰 둘 것.
 CONTROLLER_JOINT_LIMITS_RAD = (
     (-150 * DEG, 150 * DEG),
-    (-95 * DEG, 95 * DEG),
-    (-140 * DEG, 140 * DEG),
+    (-115 * DEG, 115 * DEG),
+    (-155 * DEG, 155 * DEG),
 )
 
-#: 소프트웨어가 쓰는 한계 = 컨트롤러 값에서 1도씩 좁힌 것.
+#: 자기충돌이 절대 일어나지 않는 최대 대칭 박스 [deg]. `tools/collision_map.py` 산출.
 #:
-#: 좁히는 이유는 컨트롤러 폴트(리셋 필요)로 가기 전에 소프트웨어가 먼저
-#: SafetyViolation 으로 깔끔하게 거부하기 위한 완충뿐이다.
-#: 기구 간섭을 막는 진짜 관문은 collision.py 의 CAD 자기충돌 검사이고
-#: 모든 계획 경로에서 호출된다. 그래서 박스 한계는 좁게 잡지 않는다.
+#: 이 박스 안에서는 (q2, q3) 어떤 조합도 여유 10 mm 를 지킨다. 경계는 실제
+#: 경계다 — J3 를 156도로 한 칸만 넓혀도 최소 틈새가 8.0 mm 로 떨어진다.
+#: (q1 은 무관하다. 지지구조물이 원점 중심 회전대칭이라 자기충돌은 q2, q3 만으로
+#:  결정된다. J1 값은 컨트롤러 한계를 그대로 쓴다.)
+#:
+#: 박스 모서리에서의 최소 틈새는 10.4 mm 라 여유 기준에 거의 붙어 있다.
+#: 그래서 이 박스는 계획을 거르는 1차 관문일 뿐이고, 실제 관문은 여전히
+#: 모든 계획 경로에서 도는 `collision.check_self_collision()` 이다.
+SELF_COLLISION_SAFE_BOX_DEG = (150.0, 110.0, 155.0)
+
+#: 소프트웨어가 쓰는 한계 = 두 제약 중 좁은 쪽.
+#:
+#:   - 컨트롤러 한계에서 1도 뺀 값. 컨트롤러 폴트(리셋 필요)로 가기 전에
+#:     소프트웨어가 먼저 SafetyViolation 으로 거부하게 하는 완충이다.
+#:   - 자기충돌 안전 박스.
+#:
+#: 축마다 어느 쪽이 이기는지가 다르다. J2 는 충돌 박스(110)가, J1·J3 는
+#: 컨트롤러 완충(149, 154)이 이긴다.
 _LIMIT_MARGIN_DEG = 1.0
 JOINT_LIMITS_RAD = tuple(
-    (lo + _LIMIT_MARGIN_DEG * DEG, hi - _LIMIT_MARGIN_DEG * DEG)
-    for lo, hi in CONTROLLER_JOINT_LIMITS_RAD
+    (max(lo + _LIMIT_MARGIN_DEG * DEG, -box * DEG),
+     min(hi - _LIMIT_MARGIN_DEG * DEG, box * DEG))
+    for (lo, hi), box in zip(CONTROLLER_JOINT_LIMITS_RAD,
+                             SELF_COLLISION_SAFE_BOX_DEG)
 )
 
 

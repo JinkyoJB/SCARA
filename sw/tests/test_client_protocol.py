@@ -255,9 +255,9 @@ def test_joint_limit_blocks_before_send():
 def test_self_collision_check_rejects_overlap():
     """자기충돌 자세는 거부된다. 박스 한계를 완화한 뒤 이것이 진짜 관문이다.
 
-    현재 설정된 관절 한계(J2 +-94, J3 +-139) 안에서는 최소 틈새가 45 mm 라
-    충돌이 나지 않는다. 그래서 한계 밖 자세로 검사 자체를 확인한다.
-    Designer 한계를 넓히면 이 검사가 실제로 관문 역할을 하게 된다.
+    관절 한계는 자기충돌 안전 박스 안쪽으로 잡혀 있어서(한계 안 최소 틈새
+    12.8 mm) 한계를 통과한 자세는 충돌하지 않는다. 그래서 한계 밖 자세로
+    검사 자체가 도는지 확인한다.
     """
     from scara import collision
     q_bad = [0.0, math.pi, math.pi]              # 링크2 가 베이스 기둥을 파고든다
