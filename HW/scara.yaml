@@ -1,0 +1,100 @@
+name: 'HYWOO'
+dof: 3
+axisConfig: 'spherical_wrist' # (1) 'spherical_wrist', (2) 'cobot_wrist'
+kineType: 'DH' # 'HAYATI' 'SIX_PARA' 'GEN_PARA' 'POE'
+eulType: 'EUL_XYZ' # 'EUL_RPY'
+stlFiles: [False, False, False]
+
+LinkChain: [[ 0, 0, 250, 0],
+            [ 0, 0, 250, 0],
+            [ 0, 0, 150, 0]]   # [theta_offset(deg), d(mm), a(mm), alpha(deg)]
+
+# --- CAD 대조 (2026-08-11, HWscar-V2.1 / hw_step_files 실측) ---
+# a, alpha : CAD와 일치 확인됨.
+#   감속기 출력 플랜지 원 최소자승 피팅 -> 관절축 Y = 0 / -250.04 / -500.04, 말단 -650.00
+#   세 축 모두 X=0 동일 평면, 플랜지 반경 37.46으로 동일
+#
+# d : 전부 0. 평행축 SCARA에서는 DH 공통수선이 축방향으로 유일하지 않으므로
+#     d=0 (모든 좌표계를 한 평면에 배치)은 정당한 관례이며 오류가 아니다.
+#     단, 실제 높이는 base/tool 변환으로 따로 넣어야 한다.
+#     CAD 실측 높이 (베이스 판 바닥 = 0):
+#       링크1 판재 상면 215.5 / 링크2 상면 192.0 / 링크3 상면 171.5
+#       -> 출력플랜지면 기준 물리 d = [-23.5, -20.5, tool], 베이스 오프셋 +215.5
+#     ※ d를 바꾸려면 COM의 z성분도 같은 기준으로 반드시 함께 재추출할 것.
+
+# --- mass property (SolidWorks extracted, 2nd update) ---
+# L1: 2919.85g  L2: 2498.52g  L3: 666.56g
+mass: [2.920, 2.499, 0.667]   # kg
+
+# Center of Mass (based on each link coordinate, mm)
+#
+# ⚠ 경고 (2026-08-11 CAD 대조): 이 COM/tensor의 좌표계가 DH 좌표계와 90° 어긋나 있다.
+#   - DH는 x=링크방향, y=좌우 인데 여기 값은 x≈0, y=75/61/60 으로 반대다.
+#   - CAD상 팔은 좌우 대칭(중심 X=0.02mm)이고 판재 폭 78mm(±39) -> 횡방향 75mm 편심은 불가능.
+#   - 관성텐서 최소축도 L1/L2가 y축 -> 긴 축이 로컬 y라는 뜻 (DH라면 x여야 함).
+#   즉 실제 좌표계는 (x=좌우, y=링크방향, z=연직/관절축).
+#   DH로 쓰려면 COM_DH = Rz(∓90°)·COM,  I_DH = Rz(∓90°)·I·Rz(∓90°)ᵀ 필요.
+#   부호(±90°)는 질량특성 좌표계 원점/축방향 정의에 따라 갈리므로 팀원 확인 필요.
+#   -> 확정 전까지 dynamics.py 결과(토크·베어링 수명)를 신뢰하지 말 것.
+#   -> 권장: DH 좌표계 정의를 주고 SolidWorks에서 질량특성 재추출.
+COM:  [[ 0.00,  74.99,   47.26],
+       [-0.01,  60.80,   53.32],
+       [-0.01,  59.90, -150.44]]
+
+# Inertia tensor (COM-based, g*mm^2 / 1e9 = kg*m^2)
+tensor: [
+          [
+            [ 0.032248307,  0.000001333, -0.000000398],
+            [ 0.000001333,  0.007602522, -0.007515059],
+            [-0.000000398, -0.007515059,  0.026770962]
+          ],
+          [
+            [ 0.025848809,  0.000001126, -0.000000295],
+            [ 0.000001126,  0.006374465, -0.005652317],
+            [-0.000000295, -0.005652317,  0.020919796]
+          ],
+          [
+            [ 0.007879923,  0.000000376, -0.000000805],
+            [ 0.000000376,  0.005118446, -0.002459577],
+            [-0.000000805, -0.002459577,  0.003004316]
+          ]
+]   # kg*m^2
+
+# --- Joint Stiffness --- NOT USED
+jntStiff: [9167., 3767., 3767.]   # Nm/rad
+
+# --- Joint Range and Speed --- NOT USED
+jntRange: [[-170, 170],
+           [-130, 130],
+           [-360, 360]]   # deg
+
+# Joint output shaft speed [deg/s]
+# J1,J2: 6000RPM / 100  x 360/60 = 360.00 deg/s (max)
+#         3000RPM / 100  x 360/60 = 180.00 deg/s (rated)
+# J3:    6000RPM / 50.5 x 360/60 = 712.87 deg/s (max)
+#         3000RPM / 50.5 x 360/60 = 356.44 deg/s (rated)
+jntMaxVel:   [360.00, 360.00, 712.87]   # deg/s
+jntRatedVel: [180.00, 180.00, 356.44]   # deg/s
+jntGearRatio: [100, 100, 50.5]
+
+# NOT USED
+ovs_ratio: [1.3, 1.3, 1.3]
+
+# --- Cartesian Velocity --- NOT USED
+task_rated_speed: [500.0, 500.0, 500.0, 180, 180, 180]
+task_acc_time: 0.2
+task_dec_time: 0.2
+
+# --- Motor / Reducer / Bearing ---
+motors: ["MSMF012_J1",
+         "MSMF012_J2",
+         "MSMF012_J3"]
+
+reducers: ["PQ003-H",
+           "PQ003-H",
+           "PQ003-M"]
+
+# Offset from Coor-N origin to bearing center, Z-direction [mm]
+jntConnOffs: [[0.0, 0.0, 227.77],
+              [0.0, 0.0, -23.5 ],
+              [0.0, 0.0, 171.01]]

@@ -1,0 +1,8 @@
+sn            : "undefined"
+type          : 'servo motor'
+power         : 750
+rated_torque  : 2.39 # Nm
+max_torque    : 8.36   # Nm
+rated_speed   : 3000  # RPM
+max_speed     : 6000    # RPM
+efficiency    : 1.0

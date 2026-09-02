@@ -1,0 +1,22 @@
+sn: WPSZ-42-80-SD
+type: HD
+efficiency: 1
+size: 17
+reducing_ratio: 80
+rated_speed: 2000
+rated_torque: 15
+ad_torque: 29
+ave_torque: 19
+max_input_speed: 7300
+ave_input_speed: 3000
+rated_service_life: 7000
+two_mupf: False
+flexsplineFixed: False
+
+# -- Bearing Part -- #: 
+bearing_type: CRB
+dp: 0.0614
+C: 87370
+C0: 10900
+fw: 1.35
+Mc: 62

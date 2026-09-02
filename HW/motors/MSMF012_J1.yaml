@@ -1,0 +1,8 @@
+sn            : "MSMF012L1T2"   # J1. T2/S2 구조기호 차이는 미확인 (브레이크 or 축형상)
+type          : 'servo motor'
+power         : 100
+rated_torque  : 0.32 # Nm
+max_torque    : 0.95   # Nm
+rated_speed   : 3000  # RPM
+max_speed     : 6000    # RPM
+efficiency    : 1.0

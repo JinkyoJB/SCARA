@@ -1,0 +1,1244 @@
+[
+  {
+    "name": "add_payload_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "list[str]",
+        "No Default"
+      ],
+      [
+        "description",
+        "str",
+        "No Default"
+      ],
+      [
+        "payload",
+        "dict",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "add_pose_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "list[str]",
+        "No Default"
+      ],
+      [
+        "description",
+        "str",
+        "No Default"
+      ],
+      [
+        "pose",
+        "list",
+        "No Default"
+      ],
+      [
+        "joint_positions",
+        "list",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "add_script",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "list[str]",
+        "No Default"
+      ],
+      [
+        "description",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "add_tcp_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "list[str]",
+        "No Default"
+      ],
+      [
+        "tcp",
+        "list",
+        "No Default"
+      ],
+      [
+        "description",
+        "str",
+        ""
+      ]
+    ]
+  },
+  {
+    "name": "add_tool_bank_data",
+    "params": [
+      [
+        "name",
+        "any",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "any",
+        "No Default"
+      ],
+      [
+        "description",
+        "any",
+        "No Default"
+      ],
+      [
+        "tool_center_position",
+        "any",
+        "No Default"
+      ],
+      [
+        "center_of_mass_position",
+        "any",
+        "No Default"
+      ],
+      [
+        "inertia",
+        "any",
+        "No Default"
+      ],
+      [
+        "mass",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "append_pose_wrench_sample",
+    "params": []
+  },
+  {
+    "name": "calculate_payload",
+    "params": [
+      [
+        "sample_pose_wrench_list",
+        "any",
+        null
+      ]
+    ]
+  },
+  {
+    "name": "calculate_tcp",
+    "params": [
+      [
+        "sample_pose_list",
+        "list[list[float]]",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "check_finish",
+    "params": [
+      [
+        "finish_mode",
+        "typing.Literal['FINE', 'ROUGH']",
+        "FINE"
+      ]
+    ]
+  },
+  {
+    "name": "check_payload",
+    "params": [
+      [
+        "payload",
+        "dict",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "console",
+    "params": [
+      [
+        "message",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "export_all_data",
+    "params": []
+  },
+  {
+    "name": "export_motion_data",
+    "params": []
+  },
+  {
+    "name": "export_pose_data",
+    "params": []
+  },
+  {
+    "name": "export_tool_data",
+    "params": []
+  },
+  {
+    "name": "front_save_default",
+    "params": [
+      [
+        "default_tool_option_name",
+        "any",
+        "No Default"
+      ],
+      [
+        "home_pose_name",
+        "any",
+        "No Default"
+      ],
+      [
+        "program_motion_name",
+        "any",
+        "No Default"
+      ],
+      [
+        "auto_start_flag",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_actual_joint_effort",
+    "params": []
+  },
+  {
+    "name": "get_actual_joint_position",
+    "params": []
+  },
+  {
+    "name": "get_actual_joint_velocity",
+    "params": []
+  },
+  {
+    "name": "get_actual_joint_velocity_utilization",
+    "params": []
+  },
+  {
+    "name": "get_actual_pose",
+    "params": []
+  },
+  {
+    "name": "get_actual_tcp_wrench",
+    "params": []
+  },
+  {
+    "name": "get_actual_twist",
+    "params": []
+  },
+  {
+    "name": "get_actual_wrench",
+    "params": []
+  },
+  {
+    "name": "get_alarm",
+    "params": []
+  },
+  {
+    "name": "get_collision_joint_status",
+    "params": []
+  },
+  {
+    "name": "get_collision_threshold",
+    "params": []
+  },
+  {
+    "name": "get_current_joint_limit",
+    "params": [
+      [
+        "joint_index",
+        "int",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_current_user_joint_limit_on_off_state",
+    "params": []
+  },
+  {
+    "name": "get_default_joint_limit",
+    "params": [
+      [
+        "joint_index",
+        "int",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_default_motion",
+    "params": []
+  },
+  {
+    "name": "get_default_payload",
+    "params": []
+  },
+  {
+    "name": "get_default_pose",
+    "params": []
+  },
+  {
+    "name": "get_default_tcp",
+    "params": []
+  },
+  {
+    "name": "get_dh_parameters",
+    "params": []
+  },
+  {
+    "name": "get_error_status",
+    "params": []
+  },
+  {
+    "name": "get_feed_rate",
+    "params": []
+  },
+  {
+    "name": "get_joint_temperature",
+    "params": []
+  },
+  {
+    "name": "get_operating_status",
+    "params": []
+  },
+  {
+    "name": "get_operation_policy",
+    "params": []
+  },
+  {
+    "name": "get_operational_mode",
+    "params": []
+  },
+  {
+    "name": "get_payload",
+    "params": []
+  },
+  {
+    "name": "get_payload_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_payload_by_hashtag",
+    "params": [
+      [
+        "hashtag",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_pose_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_pose_by_hashtag",
+    "params": [
+      [
+        "hashtag",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_pose_wrench_sample",
+    "params": []
+  },
+  {
+    "name": "get_pose_wrench_sample_list",
+    "params": []
+  },
+  {
+    "name": "get_post_collision_mode",
+    "params": []
+  },
+  {
+    "name": "get_residual_effort",
+    "params": []
+  },
+  {
+    "name": "get_script_by_hashtag",
+    "params": [
+      [
+        "hashtag",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_status",
+    "params": []
+  },
+  {
+    "name": "get_system_status",
+    "params": [
+      [
+        "category",
+        "any",
+        "No Default"
+      ],
+      [
+        "name",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_target_joint_effort",
+    "params": []
+  },
+  {
+    "name": "get_target_joint_position",
+    "params": []
+  },
+  {
+    "name": "get_target_joint_velocity",
+    "params": []
+  },
+  {
+    "name": "get_target_pose",
+    "params": []
+  },
+  {
+    "name": "get_target_twist",
+    "params": []
+  },
+  {
+    "name": "get_target_wrench",
+    "params": []
+  },
+  {
+    "name": "get_task_space_kinematic_limits",
+    "params": []
+  },
+  {
+    "name": "get_tcp",
+    "params": []
+  },
+  {
+    "name": "get_tcp_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_tcp_by_hashtag",
+    "params": [
+      [
+        "hashtag",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "get_total_joint_space_kinematic_limits",
+    "params": []
+  },
+  {
+    "name": "get_trajectory_status",
+    "params": []
+  },
+  {
+    "name": "get_user_joint_limit",
+    "params": [
+      [
+        "joint_index",
+        "int",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "import_all_data",
+    "params": [
+      [
+        "base64_data",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "import_motion_data",
+    "params": [
+      [
+        "base64_data",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "import_pose_data",
+    "params": [
+      [
+        "base64_data",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "import_tool_data",
+    "params": [
+      [
+        "base64_data",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "initialize_tcp",
+    "params": []
+  },
+  {
+    "name": "initialize_tcp_payload",
+    "params": []
+  },
+  {
+    "name": "is_ready",
+    "params": []
+  },
+  {
+    "name": "load_motion_bank",
+    "params": [
+      [
+        "name",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "load_motion_title_list",
+    "params": []
+  },
+  {
+    "name": "load_pose_title_list",
+    "params": []
+  },
+  {
+    "name": "load_tool_bank_data",
+    "params": [
+      [
+        "tool_name",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "load_tool_title_list",
+    "params": []
+  },
+  {
+    "name": "move_circle",
+    "params": [
+      [
+        "pose",
+        "Pose",
+        "No Default"
+      ],
+      [
+        "via_position",
+        "Position",
+        "No Default"
+      ],
+      [
+        "arc_angle",
+        "float",
+        -1
+      ],
+      [
+        "orientation_fix",
+        "bool",
+        false
+      ],
+      [
+        "vel",
+        "float",
+        -1
+      ],
+      [
+        "acc",
+        "float",
+        -1
+      ],
+      [
+        "blocking",
+        "bool",
+        false
+      ],
+      [
+        "finish_mode",
+        "typing.Literal['FINE', 'ROUGH']",
+        "FINE"
+      ]
+    ]
+  },
+  {
+    "name": "move_home",
+    "params": []
+  },
+  {
+    "name": "move_jog",
+    "params": [
+      [
+        "mode",
+        "any",
+        "No Default"
+      ],
+      [
+        "type",
+        "any",
+        "No Default"
+      ],
+      [
+        "index",
+        "any",
+        "No Default"
+      ],
+      [
+        "direction",
+        "any",
+        "No Default"
+      ],
+      [
+        "speed_level",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "move_joint",
+    "params": [
+      [
+        "waypoints",
+        "list",
+        "No Default"
+      ],
+      [
+        "blocking",
+        "bool",
+        false
+      ],
+      [
+        "finish_mode",
+        "typing.Literal['FINE', 'ROUGH']",
+        "FINE"
+      ]
+    ]
+  },
+  {
+    "name": "move_joint_speed",
+    "params": [
+      [
+        "joint_velocities",
+        "any",
+        "No Default"
+      ],
+      [
+        "acc",
+        "any",
+        "No Default"
+      ],
+      [
+        "timeout",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "move_linear",
+    "params": [
+      [
+        "waypoints",
+        "list",
+        "No Default"
+      ],
+      [
+        "blocking",
+        "bool",
+        false
+      ],
+      [
+        "finish_mode",
+        "typing.Literal['FINE', 'ROUGH']",
+        "FINE"
+      ]
+    ]
+  },
+  {
+    "name": "move_linear_speed",
+    "params": [
+      [
+        "twist",
+        "any",
+        "No Default"
+      ],
+      [
+        "acc",
+        "any",
+        "No Default"
+      ],
+      [
+        "reference",
+        "any",
+        "No Default"
+      ],
+      [
+        "timeout",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "pause",
+    "params": [
+      [
+        "ramp_time",
+        "float",
+        -1
+      ]
+    ]
+  },
+  {
+    "name": "remove_pose_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "remove_pose_wrench_sample",
+    "params": []
+  },
+  {
+    "name": "remove_script",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "remove_tcp_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "remove_tool_bank_data",
+    "params": [
+      [
+        "name",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "reset",
+    "params": []
+  },
+  {
+    "name": "reset_collision_state",
+    "params": []
+  },
+  {
+    "name": "reset_trigger",
+    "params": []
+  },
+  {
+    "name": "resume",
+    "params": [
+      [
+        "ramp_time",
+        "float",
+        -1
+      ]
+    ]
+  },
+  {
+    "name": "set_collision_detection_mode",
+    "params": [
+      [
+        "filtering_mode",
+        "typing.Literal['NO_FILTERING', 'NO_PICK_AND_PLACE_LOAD_SENSING', 'NO_TOOL_DIRECTION_LOAD_SENSING']",
+        "NO_FILTERING"
+      ]
+    ]
+  },
+  {
+    "name": "set_collision_detection_sensitivity",
+    "params": [
+      [
+        "sensitivity",
+        "float",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_collision_threshold_for_each_joint",
+    "params": [
+      [
+        "joint_number",
+        "any",
+        "No Default"
+      ],
+      [
+        "threshold",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_direct_teaching_on_off",
+    "params": [
+      [
+        "state",
+        "bool",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_feed_rate",
+    "params": [
+      [
+        "feed_rate",
+        "float",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_ignore_orientation_for_ik_on_off_state",
+    "params": [
+      [
+        "state",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_operation_policy",
+    "params": [
+      [
+        "operation_policy",
+        "typing.Literal['STRICT', 'FREE']",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_operational_mode",
+    "params": [
+      [
+        "operational_mode",
+        "typing.Literal['AMBIGUOUS', 'MANUAL', 'AUTO', 'REMOTE']",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_payload",
+    "params": [
+      [
+        "payload",
+        "dict",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_payload_with_bank",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_post_collision_mode",
+    "params": [
+      [
+        "mode",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_servo_on_off",
+    "params": [
+      [
+        "state",
+        "bool",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_system_status",
+    "params": [
+      [
+        "category",
+        "any",
+        "No Default"
+      ],
+      [
+        "name",
+        "any",
+        "No Default"
+      ],
+      [
+        "status",
+        "any",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_tcp",
+    "params": [
+      [
+        "tcp",
+        "list",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_tcp_with_bank",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_tool_bank_data",
+    "params": [
+      [
+        "tool_center_position",
+        "any",
+        "No Default"
+      ],
+      [
+        "center_of_mass_position",
+        "any",
+        "No Default"
+      ],
+      [
+        "mass",
+        "any",
+        "No Default"
+      ],
+      [
+        "inertia",
+        "any",
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "set_user_joint_limit",
+    "params": [
+      [
+        "joint_index",
+        "int",
+        "No Default"
+      ],
+      [
+        "negative_limit",
+        "float",
+        "No Default"
+      ],
+      [
+        "positive_limit",
+        "float",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "set_user_joint_limit_on_off_state",
+    "params": [
+      [
+        "state",
+        "bool",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "solve_forward_kinematics",
+    "params": [
+      [
+        "target_q",
+        "list",
+        "No Default"
+      ],
+      [
+        "tcp",
+        "list | None",
+        null
+      ]
+    ]
+  },
+  {
+    "name": "solve_inverse_kinematics",
+    "params": [
+      [
+        "target_p",
+        "list",
+        "No Default"
+      ],
+      [
+        "seed_q",
+        "list | None",
+        null
+      ],
+      [
+        "tcp",
+        "list | None",
+        null
+      ]
+    ]
+  },
+  {
+    "name": "stop",
+    "params": [
+      [
+        "ramp_time",
+        "float",
+        -1
+      ]
+    ]
+  },
+  {
+    "name": "tail_log_file",
+    "params": [
+      [
+        "num_lines",
+        "int",
+        10
+      ]
+    ]
+  },
+  {
+    "name": "update_payload_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "update_pose_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "list[str]",
+        "No Default"
+      ],
+      [
+        "description",
+        "str",
+        "No Default"
+      ],
+      [
+        "pose",
+        "list",
+        "No Default"
+      ],
+      [
+        "joint_positions",
+        "list",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "update_script",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "list[str]",
+        "No Default"
+      ],
+      [
+        "description",
+        "str",
+        "No Default"
+      ],
+      [
+        "script",
+        "str",
+        "No Default"
+      ]
+    ]
+  },
+  {
+    "name": "update_tcp_bank_data",
+    "params": [
+      [
+        "name",
+        "str",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "list[str]",
+        "No Default"
+      ],
+      [
+        "tcp",
+        "list",
+        "No Default"
+      ],
+      [
+        "description",
+        "str",
+        ""
+      ]
+    ]
+  },
+  {
+    "name": "update_tool_bank_data",
+    "params": [
+      [
+        "name",
+        "any",
+        "No Default"
+      ],
+      [
+        "hashtags",
+        "any",
+        "No Default"
+      ],
+      [
+        "description",
+        "any",
+        "No Default"
+      ],
+      [
+        "tool_center_position",
+        "any",
+        "No Default"
+      ],
+      [
+        "center_of_mass_position",
+        "any",
+        "No Default"
+      ],
+      [
+        "inertia",
+        "any",
+        "No Default"
+      ],
+      [
+        "mass",
+        "any",
+        "No Default"
+      ]
+    ]
+  }
+]

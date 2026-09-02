@@ -1,0 +1,8 @@
+sn            : "MSMF012L1S2"   # J3
+type          : 'servo motor'
+power         : 100
+rated_torque  : 0.32 # Nm
+max_torque    : 0.95   # Nm
+rated_speed   : 3000  # RPM
+max_speed     : 6000    # RPM
+efficiency    : 1.0

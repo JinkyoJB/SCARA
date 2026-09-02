@@ -1,0 +1,25 @@
+sn: PQ003-H
+type: HD
+efficiency: 1
+size: 3
+reducing_ratio: 100
+
+rated_torque: 29
+ad_torque: 51
+ave_torque: 39
+
+rated_speed: 2000
+max_input_speed: 6000
+ave_input_speed: 2000
+
+rated_service_life: 10000
+
+two_mupf: False
+flexsplineFixed: True
+
+bearing_type: CRB
+dp: 0.06754
+C: 25000
+C0: 37000
+fw: 1.35
+Mc: 74
