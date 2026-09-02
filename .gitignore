@@ -14,8 +14,8 @@ vendor/
 
 # 벤더 매뉴얼·카탈로그 (배포 불가, 각 제조사에서 받을 것)
 reference/
-HW/*.pdf
-HW/hw_step_files/*.pdf
+HW/sx-dsv03190_r16_0e.pdf
+HW/mn_minas_a6b_ethercat_communication_specification_pidsx_en.pdf
 
 # 컨트롤러 설정 덤프 (기기별 값)
 sw/controller_config_*.json
